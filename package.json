@@ -1,0 +1,50 @@
+{
+  "name": "inhouse",
+  "version": "1.0.0",
+  "description": "Inhouse tool for realdrip",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever -c \"node -r ./build/utils/validateEnvironmentVars.js\" ./build/http/start.js",
+    "dev": "nodemon -r ./src/utils/validateEnvironmentVars.js  --exec babel-node ./src/http/start.js --watch ./src",
+    "clean": "rm -rf ./build && mkdir build",
+    "test": "jest ./src/tests --coverage",
+    "build": "npm run clean && babel ./src -d ./build --copy-files",
+    "lint": "eslint ./src"
+  },
+  "keywords": [
+    "realdrip",
+    "Treplabs"
+  ],
+  "author": "Treplabs",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "bunyan": "^1.8.12",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-requests-logger": "^2.0.5",
+    "forever": "^1.0.0",
+    "nodemon": "^1.19.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "core-js": "^3.3.6",
+    "coveralls": "^3.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": "2500"
+  }
+}
