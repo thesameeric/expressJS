@@ -1,7 +1,8 @@
 import express from 'express';
+import controller from '../controller';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => res.json({ status: 'Welcome to the TREP lifestyle' }));
+router.get('/', controller.trep);
 
 export default router;
