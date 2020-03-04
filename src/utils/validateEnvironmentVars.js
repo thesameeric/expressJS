@@ -35,7 +35,7 @@ ENV_VAR_NAME: {
   message: ''
 }
 */
-const environmetnVars = {
+const environmentVars = {
   APP_NAME: {
     severityLevel: 2,
     env: [TEST, DEVELOPMENT, STAGING, PRODUCTION],
@@ -63,12 +63,12 @@ const environmetnVars = {
   },
 };
 
-const variableNames = Object.keys(environmetnVars);
+const variableNames = Object.keys(environmentVars);
 
 variableNames.forEach((name) => {
   const {
     severityLevel, env, message, defaultValue,
-  } = environmetnVars[name];
+  } = environmentVars[name];
   if (!env.includes(currentEnvironment)) return;
   switch (severityLevel) {
     case 1: {
